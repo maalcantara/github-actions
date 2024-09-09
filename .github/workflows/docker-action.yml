@@ -1,0 +1,17 @@
+name: 'Docker Action'
+
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: run Docker Action
+        id: hello
+        uses: ./.github/actions/docker-action
+        with:
+          who-to-greet: 'DevOps Engineer'
