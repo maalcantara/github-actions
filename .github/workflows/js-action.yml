@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: setup Node.js
         uses: actions/setup-node@v2
@@ -19,6 +19,11 @@ jobs:
         working-directory: .github/actions/js-action
 
       - name: run JavaScript Action
+        id: hello
         uses: ./.github/actions/js-action
         with:
-          message: 'Hello from Github Actions!'
+          who-to-greet: 'DevOps Engineer'
+
+      # use the output from the 'hello' step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
