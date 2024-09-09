@@ -1,10 +1,10 @@
-name: 'JavaScript Action'
-description: 'A simple js action'
+name: 'Hello world'
+description: 'Greet someone and record the time'
 inputs:
-  message:
-    description: 'A message to print'
+  who-to-greet:
+    description: 'Who to greet'
     required: true
-    default: 'Hello world'
+    default: 'world'
 runs:
   using: 'node16'
   main: 'src/index.js'
