@@ -1,8 +1,8 @@
 name: 'JavaScript Action'
-desciption: 'A simple js action'
+description: 'A simple js action'
 inputs:
   message:
-    desciption: 'A message to print'
+    description: 'A message to print'
     required: true
     default: 'Hello world'
 runs:
