@@ -20,3 +20,6 @@ try {
 } catch (error) {
   core.setFailed(`Action failed with error: ${error.message}`);
 }
+
+// PAYLOAD: representação em json dos dados do evento (push) que acionou o workflow
+// no github actions. Infos como o commit que foi empurrado, branch de destino, autor do commit e a mensagem de commit
