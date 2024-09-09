@@ -1,15 +1,22 @@
 const core = require('@actions/core');
+const github = require('@actions/github');
 
 try {
-  // obtém o input
-  const message = core.getInput('message');
-
+  // who-to-greet -> input defined in action file
+  const nameToGreet = core.getInput('who-to-greet');
+  
   // exibe a mensagem
-  console.log(`Message: ${message}`);
-
+  console.log(`Hello: ${nameToGreet}!`);
+  
+  const time = (new Date()).toTimeString();
+  
   // define um output
-  core.setOutput('result', `Printed message: ${message}`);
+  core.setOutput("time", time);
+  
+  // payload do evento atual
+  const payload = JSON.stringify(github.context.payload, undefined, 2);
+  console.log(`The event payload: ${payload}`);
 
-} catch(error){
+} catch (error) {
   core.setFailed(`Action failed with error: ${error.message}`);
 }
