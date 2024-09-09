@@ -15,3 +15,7 @@ jobs:
         uses: ./.github/actions/docker-action
         with:
           who-to-greet: 'DevOps Engineer'
+
+      # use the output from the 'hello' step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
