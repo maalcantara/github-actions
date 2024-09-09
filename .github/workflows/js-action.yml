@@ -1,0 +1,24 @@
+name: using JavaScript Action
+
+on: [push]
+
+jobs:
+  js-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: install dependencies
+        run: npm install
+        working-directory: .github/actions/js-action
+
+      - name: run JavaScript Action
+        uses: ./.github/actions/js-action
+        with:
+          message: 'Hello from Github Actions!'
