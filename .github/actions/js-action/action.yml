@@ -6,5 +6,5 @@ inputs:
     required: true
     default: 'Hello world'
 runs:
-  using: 'node20'
+  using: 'node16'
   main: 'src/index.js'
