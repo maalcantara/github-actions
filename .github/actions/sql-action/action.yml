@@ -1,0 +1,34 @@
+name: 'SQL Server Query Action'
+description: 'Executa uma consulta em um banco de dados Microsoft SQL Server'
+
+inputs:
+  db_host:
+    description: 'Host do banco de dados SQL Server'
+    required: true
+  db_port:
+    description: 'Porta do banco de dados SQL Server'
+    required: true
+    default: '1433'
+  db_user:
+    description: 'Usuário do banco de dados SQL Server'
+    required: true
+  db_password:
+    description: 'Senha do banco de dados SQL Server'
+    required: true
+  db_name:
+    description: 'Nome do banco de dados SQL Server'
+    required: true
+  query:
+    description: 'Consulta SQL a ser executada'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.db_host }}
+    - ${{ inputs.db_port }}
+    - ${{ inputs.db_user }}
+    - ${{ inputs.db_password }}
+    - ${{ inputs.db_name }}
+    - ${{ inputs.query }}
