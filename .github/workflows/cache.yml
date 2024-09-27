@@ -1,4 +1,4 @@
-name: cache action
+name: Cache action
 
 on:
   push:
